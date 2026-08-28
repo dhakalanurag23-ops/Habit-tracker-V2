@@ -1,0 +1,173 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.READ_CALENDAR" />
+    <uses-permission android:name="android.permission.WRITE_CALENDAR" />
+    <uses-permission android:name="android.permission.POST_NOTIFICATIONS" />
+    <uses-permission android:name="android.permission.SCHEDULE_EXACT_ALARM" />
+    <uses-permission android:name="android.permission.USE_EXACT_ALARM" />
+    <uses-permission android:name="android.permission.VIBRATE" />
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
+    <uses-permission android:name="android.permission.RECORD_AUDIO" />
+    <uses-permission android:name="android.permission.CAMERA" />
+
+    <application
+        android:name=".HabitPulseApplication"
+        android:allowBackup="true"
+        android:dataExtractionRules="@xml/data_extraction_rules"
+        android:fullBackupContent="@xml/backup_rules"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/Theme.MyApplication">
+
+        <!-- Target Main Activity -->
+        <activity
+            android:name=".MainActivity"
+            android:exported="true"
+            android:label="@string/app_name"
+            android:launchMode="singleTask"
+            android:theme="@style/Theme.MyApplication">
+            <!-- Base Intent filter for standard intents -->
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+
+        <!-- Dynamic Icon Switcher: Activity Aliases for Dynamic Themes -->
+
+        <!-- 1. Liquid Glass (Default Launcher) -->
+        <activity-alias
+            android:name=".MainActivityAliasLiquid"
+            android:enabled="true"
+            android:exported="true"
+            android:icon="@mipmap/ic_launcher"
+            android:roundIcon="@mipmap/ic_launcher_round"
+            android:label="@string/app_name"
+            android:targetActivity=".MainActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity-alias>
+
+        <!-- 2. Nothing UI Theme -->
+        <activity-alias
+            android:name=".MainActivityAliasNothing"
+            android:enabled="false"
+            android:exported="true"
+            android:icon="@mipmap/ic_launcher_nothing"
+            android:roundIcon="@mipmap/ic_launcher_nothing"
+            android:label="@string/app_name_nothing"
+            android:targetActivity=".MainActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity-alias>
+
+        <!-- 3. Material You Theme -->
+        <activity-alias
+            android:name=".MainActivityAliasMaterial"
+            android:enabled="false"
+            android:exported="true"
+            android:icon="@mipmap/ic_launcher_material"
+            android:roundIcon="@mipmap/ic_launcher_material"
+            android:label="@string/app_name_material"
+            android:targetActivity=".MainActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity-alias>
+
+        <!-- 4. Minimalism Theme -->
+        <activity-alias
+            android:name=".MainActivityAliasMinimal"
+            android:enabled="false"
+            android:exported="true"
+            android:icon="@mipmap/ic_launcher_minimal"
+            android:roundIcon="@mipmap/ic_launcher_minimal"
+            android:label="@string/app_name_minimal"
+            android:targetActivity=".MainActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity-alias>
+
+        <!-- 5. Maximalism Theme -->
+        <activity-alias
+            android:name=".MainActivityAliasMaximal"
+            android:enabled="false"
+            android:exported="true"
+            android:icon="@mipmap/ic_launcher_maximal"
+            android:roundIcon="@mipmap/ic_launcher_maximal"
+            android:label="@string/app_name_maximal"
+            android:targetActivity=".MainActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity-alias>
+
+        <!-- Task Alarm & Escalated Motivation Receiver -->
+        <receiver
+            android:name=".util.TaskAlarmReceiver"
+            android:exported="false">
+            <intent-filter>
+                <action android:name="com.example.ACTION_TRIGGER_TASK_ALARM" />
+                <action android:name="com.example.ACTION_SNOOZE_TASK_ALARM" />
+                <action android:name="com.example.ACTION_MARK_TASK_DONE" />
+                <action android:name="com.example.ACTION_TRIGGER_ESCALATED_MOTIVATION" />
+            </intent-filter>
+        </receiver>
+
+        <!-- Quick Settings Tile for Scan Notes AI -->
+        <service
+            android:name=".util.ScanNotesTileService"
+            android:icon="@drawable/ic_scan_notes"
+            android:label="Scan Notes AI"
+            android:permission="android.permission.BIND_QUICK_SETTINGS_TILE"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.service.quicksettings.action.QS_TILE" />
+            </intent-filter>
+        </service>
+
+        <!-- Persistent Quick Settings Toggle for Gemini Vision Camera Scanning -->
+        <service
+            android:name=".util.VisionScannerTileService"
+            android:icon="@drawable/ic_vision_scanner"
+            android:label="@string/tile_vision_scanner_label"
+            android:description="@string/tile_vision_scanner_description"
+            android:permission="android.permission.BIND_QUICK_SETTINGS_TILE"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.service.quicksettings.action.QS_TILE" />
+            </intent-filter>
+            <meta-data
+                android:name="android.service.quicksettings.TOGGLEABLE_TILE"
+                android:value="true" />
+        </service>
+
+        <!-- Interactive Jetpack Glance Task & Habit Widget -->
+        <receiver
+            android:name=".widget.TaskWidgetReceiver"
+            android:exported="true"
+            android:label="@string/widget_name">
+            <intent-filter>
+                <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
+            </intent-filter>
+            <meta-data
+                android:name="android.appwidget.provider"
+                android:resource="@xml/task_widget_info" />
+        </receiver>
+
+    </application>
+
+</manifest>

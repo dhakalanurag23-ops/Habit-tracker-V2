@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="108dp"
+    android:height="108dp"
+    android:viewportWidth="108"
+    android:viewportHeight="108">
+    <!-- Matrix dots representation of habit streak pulse -->
+    <path
+        android:fillColor="#FFFFFF"
+        android:pathData="M38,54 A4,4 0 1,1 38,53.9 Z M46,62 A4,4 0 1,1 46,61.9 Z M54,70 A4,4 0 1,1 54,69.9 Z M62,54 A4,4 0 1,1 62,53.9 Z M70,38 A4,4 0 1,1 70,37.9 Z" />
+    <!-- Signature Nothing UI red LED accent dot -->
+    <path
+        android:fillColor="#E11D48"
+        android:pathData="M78,30 A5,5 0 1,1 78,29.9 Z" />
+    <!-- Dotted circular frame -->
+    <path
+        android:fillColor="#888888"
+        android:pathData="M54,20 A3,3 0 1,1 54,19.9 Z M54,88 A3,3 0 1,1 54,87.9 Z M20,54 A3,3 0 1,1 20,53.9 Z M88,54 A3,3 0 1,1 88,53.9 Z M30,30 A3,3 0 1,1 30,29.9 Z M78,78 A3,3 0 1,1 78,77.9 Z M30,78 A3,3 0 1,1 30,77.9 Z" />
+</vector>

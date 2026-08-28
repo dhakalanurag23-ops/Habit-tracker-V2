@@ -1,0 +1,14 @@
+<resources>
+    <string name="app_name">HabitPulse</string>
+    <string name="app_name_liquid">HabitPulse (Liquid Glass)</string>
+    <string name="app_name_nothing">HabitPulse (Nothing UI)</string>
+    <string name="app_name_material">HabitPulse (Material You)</string>
+    <string name="app_name_minimal">HabitPulse (Minimalism)</string>
+    <string name="app_name_maximal">HabitPulse (Maximalism)</string>
+    <string name="widget_name">Habit &amp; Task Widget</string>
+    <string name="widget_description">Interactive glance widget for tracking daily habits and streak completions.</string>
+    <string name="tile_vision_scanner_label">Gemini Vision</string>
+    <string name="tile_vision_scanner_subtitle_active">Scanner Active</string>
+    <string name="tile_vision_scanner_subtitle_inactive">Tap to Scan</string>
+    <string name="tile_vision_scanner_description">Quickly launch Gemini Vision camera to scan notes, schedules, and meals into habits and tasks</string>
+</resources>

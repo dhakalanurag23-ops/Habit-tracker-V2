@@ -1,0 +1,6 @@
+{
+  "name": "HabitPulse",
+  "description": "Advanced Jetpack Compose Habit & Task Manager with Dynamic Theme Engine, Dynamic Launcher Icon Swapping, Interactive Glance Widgets, and Multimodal Gemini AI.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
